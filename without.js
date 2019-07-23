@@ -22,12 +22,32 @@ let eqArrays = function(inputArray1, inputArray2) {
   }
 };
 
-let without = function(source, itemsToRemove) {
+let itemInArray = function(item, arrayToCheck) {
+  let found = false;
+  for (let arrayToCheckItem of arrayToCheck) {
+    // console.log(`item: ${item}; arrayToCheckItem: ${arrayToCheckItem}`);
+    // console.log(item === arrayToCheckItem);
+    if (item === arrayToCheckItem) found = true;
+  }
+  return found;
+};
+console.log('itemInArray: ');
+console.log(itemInArray(1, [1, 2, 3]));
 
+let without = function(source, itemsToRemove) {
+  let output = [];
+  //add items to output from source only if they don't exist in itemsToRemove
+  for (let item of source) {
+    if (!itemInArray(item, itemsToRemove)) output.push(item);
+    // }
+  }
+  return output;
 };
 
 
 const words = ["hello", "world", "lighthouse"];
-without(["hello", "world", "lighthouse"], ["lighthouse"]); // no need to capture return value for this test case
+// without(["hello", "world", "lighthouse"], ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+// assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+console.log(without([1, 2, 3], [1])); // => [2, 3]
+console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"])
