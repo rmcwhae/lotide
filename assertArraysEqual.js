@@ -1,8 +1,8 @@
 // Assertion Function
 
 let assertArraysEqual = function(inputArray1, inputArray2, message) {
-  if (eqArrays(inputArray1, inputArray2)) {
-    console.log(`✅✅✅ Assertion Passed`);
+  if (eqArrays(inputArray1, inputArray2)) {//use eqArrays function to compare arrays
+    console.log(`✅✅✅ Assertion Passed`);//log appropriate message
   } else {
     console.log(`🛑🛑🛑 Assertion Failed`);
   }
