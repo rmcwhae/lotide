@@ -1,10 +1,10 @@
 // Assertion Function
 
-let assertArraysEqual = function(inputArray1, inputArray2, message) {
-  if (eqArrays(inputArray1, inputArray2)) {//use eqArrays function to compare arrays
-    console.log(`✅✅✅ Assertion Passed`);//log appropriate message
+let assertArraysEqual = function(actual, expected, message) {
+  if (eqArrays(actual, expected)) {//use eqArrays function to compare arrays
+    console.log(`✅✅✅ Assertion Passed ${actual} === ${expected}`);//log appropriate message
   } else {
-    console.log(`🛑🛑🛑 Assertion Failed`);
+    console.log(`🛑🛑🛑 Assertion Failed ${actual} === ${expected}`);
   }
 };
 
