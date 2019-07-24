@@ -1,13 +1,14 @@
 // FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+const assertObjectsEqual = function(object1, object2) {
+  const inspect = require('util').inspect;
+  if (eqObjects(object1, object2)) {
+    console.log(`✅✅✅ Assertion Passed: ${inspect(object1)} === ${inspect(object2)}`);
   } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(object1)} !== ${inspect(object2)}`);
   }
 };
 
-let eqArrays = function(inputArray1, inputArray2) {
+const eqArrays = function(inputArray1, inputArray2) {
   if (inputArray1.length !== inputArray2.length) {
     return false;
   } else {
@@ -41,3 +42,14 @@ const eqObjects = function(object1, object2) {
 
   // return identical;
 };
+
+const object1a = { a: "1", b: "2" };
+const object2a = { b: "2", a: "1" };
+assertObjectsEqual(object1a, object2a);
+
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertObjectsEqual(cd, dc);
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertObjectsEqual(cd, cd2); //false
