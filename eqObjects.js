@@ -28,10 +28,12 @@ const eqObjects = function(object1, object2) {
     //same number of keys so let's compare values
     let object1Keys = Object.keys(object1);//array of keys from first object
     for (let key of object1Keys) {
-      // console.log(`object1[${key}]: ${object1[key]}; object2[${key}]: ${object2[key]}`);
-      // console.log('stuff');
-      if (object1[key] !== object2[key]) {
-        return false; //if both key values aren't the same
+      if (Array.isArray(object1[key])) {
+        if (!eqArrays(object1[key], object2[key])) return false;//return false when arrays don't match
+      } else {
+        if (object1[key] !== object2[key]) {
+          return false; //if both key values aren't the same
+        }
       }
     }
     return true;
@@ -52,4 +54,4 @@ const dc = { d: ["2", 3], c: "1" };
 assertEqual(eqObjects(cd, dc), true); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), true);
+assertEqual(eqObjects(cd, cd2), false);
