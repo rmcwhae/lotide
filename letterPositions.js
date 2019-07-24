@@ -24,14 +24,22 @@ let eqArrays = function(inputArray1, inputArray2) {
 
 const letterPositions = function(sentence) {
   const results = {};
-  sentence = sentence.split(" ").join("");//remove spaces from input
+  // sentence = sentence.split(" ").join("");//remove spaces from input
   for (let i = 0; i < sentence.length; i++) {
-    if (results[sentence[i]]) results[sentence[i]].push(i);//for each letter, add it's index to the results array for that letter's key
-    else results[sentence[i]] = [i];
+    let letter = sentence[i];
+    console.log(`letter is ${letter}`);
+    if (letter !== ' ') {//skip spaces
+      if (results[letter]) {
+        results[letter].push(i);//for each letter, add its index to the results array for that letter's key
+      } else {
+        results[letter] = [i];
+      }
+    }
   }
   // console.log(results;)
   return results;
 };
 
 console.log(letterPositions("hello"));
-assertArraysEqual(letterPositions("hello").e, [1]);
+// assertArraysEqual(letterPositions("hello").e, [1]);
+console.log(letterPositions("lighthouse in the house"));
