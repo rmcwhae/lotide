@@ -6,7 +6,7 @@ let assertArraysEqual = function(inputArray1, inputArray2, message) {
   } else {
     console.log(`🛑🛑🛑 Assertion Failed`);
   }
-}
+};
 
 
 let eqArrays = function(inputArray1, inputArray2) {
