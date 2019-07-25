@@ -12,7 +12,7 @@ const findKey = function(object, callback) {
     // console.log('stars is', object[item].stars);
     // console.log('callback of item is', callback(item));
     // console.log('item is', item);
-    if (callback(object[item])) {//if callback becomes true, return the index of where it happened
+    if (callback(object[item])) {//if callback becomes true, return the key of where it happened
       return item;
     }
   }
@@ -39,3 +39,13 @@ let results2 = findKey({
 }, x => x.stars === 3);
 
 assertEqual(results2, "Akaleri");
+
+let users = {
+  'barney':  { 'age': 36, 'active': true },
+  'fred':    { 'age': 40, 'active': false },
+  'pebbles': { 'age': 1,  'active': true }
+};
+
+console.log(findKey(users, x => x.age > 30));
+
+console.log(findKey(users, x => x.active === true));
