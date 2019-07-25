@@ -1,6 +1,6 @@
 // Assertion Function
 
-let assertArraysEqual = function(actual, expected, message) {
+let assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {//use eqArrays function to compare arrays
     console.log(`✅✅✅ Assertion Passed ${actual} === ${expected}`);//log appropriate message
   } else {
@@ -43,5 +43,5 @@ assertArraysEqual(results1, ['g', 'c', 't', 'm', 't']);
 const results2 = map(words, word => word.length);
 assertArraysEqual(results2, [6, 7, 2, 5, 3]);
 
-const results3 = map(words, word => word === 'to' );
+const results3 = map(words, word => word === 'to');
 assertArraysEqual(results3, [false, false, true, false, false]);
