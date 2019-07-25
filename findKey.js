@@ -9,7 +9,7 @@ const assertEqual = function(actual, expected) {
 
 const findKey = function(object, callback) {
   for (let item in object) {
-    console.log('stars is', object[item].stars);
+    // console.log('stars is', object[item].stars);
     // console.log('callback of item is', callback(item));
     // console.log('item is', item);
     if (callback(object[item])) {//if callback becomes true, return the index of where it happened
