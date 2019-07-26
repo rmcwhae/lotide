@@ -22,14 +22,15 @@ let eqArrays = function(inputArray1, inputArray2) {
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
-  // let identical = true;//start true; now let's prove it wrong
-  //stuff where identical could become false
   if (Object.keys(object1).length === Object.keys(object2).length) {//same number of keys
     //same number of keys so let's compare values
     let object1Keys = Object.keys(object1);//array of keys from first object
     for (let key of object1Keys) {
       if (Array.isArray(object1[key])) {
         if (!eqArrays(object1[key], object2[key])) return false;//return false when arrays don't match
+      } else if (object1[key] instanceof Object) {//recursive object stuff
+        //if object1[key] is an object, recursively call
+        return eqObjects(object1[key], object2[key]);
       } else {
         if (object1[key] !== object2[key]) {
           return false; //if both key values aren't the same
@@ -38,8 +39,6 @@ const eqObjects = function(object1, object2) {
     }
     return true;
   } else return false;//different number of keys, so return false; could have used Object.keys
-
-  // return identical;
 };
 
 const object1a = { a: "1", b: "2" };
@@ -55,3 +54,11 @@ assertEqual(eqObjects(cd, dc), true); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 assertEqual(eqObjects(cd, cd2), false);
+
+
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+
+assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
+
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false); // => false
+assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false); // => false
