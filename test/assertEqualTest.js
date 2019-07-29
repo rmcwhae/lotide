@@ -1,9 +1,9 @@
-// test/assertEqualTest.js
+// // test/assertEqualTest.js
 
-const assertEqual = require('../assertEqual');
+// const assertEqual = require('../assertEqual');
 
-// TEST CODE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-assertEqual(1, 2);
-assertEqual("Lighthouse", "Lighthouse");
+// // TEST CODE
+// assertEqual("Lighthouse Labs", "Bootcamp");
+// assertEqual(1, 1);
+// assertEqual(1, 2);
+// assertEqual("Lighthouse", "Lighthouse");
