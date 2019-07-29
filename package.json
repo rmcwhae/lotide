@@ -1,5 +1,5 @@
 {
-  "name": "lotide",
+  "name": "@rmcwhae/lotide",
   "version": "1.0.0",
   "description": "",
   "main": "assertArraysEqual.js",
@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/rmcwhae/lotide.git"
   },
-  "author": "",
+  "author": "Russell McWhae (https://russellmcwhae.ca/",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rmcwhae/lotide/issues"
